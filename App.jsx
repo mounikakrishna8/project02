@@ -6,13 +6,14 @@
 // import Login from './src/components/Login';
 // import CreatePost from './src/components/CreatePost';
 
-import TopBar from "./topbar/TopBar";
+
+import TopBar from "./src/components/topbar/topbar";
 function App() {
     return (
-        // <div className="App"> 
-        //     blog app
-        // </div>
-        <TopBar />
+      <>
+       <TopBar />
+      </>
+        
         // <Router>
         //     <Navbar />
         //     <Switch>
