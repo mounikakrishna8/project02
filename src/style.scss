@@ -5,7 +5,11 @@ $lightGreen: #b9e7e7;
     justify-content: center;
     .container{
         width: 98%;
-
+        img{
+            width: 98%;
+            height: 120px;
+            object-fit: cover; 
+        }
 
         .links{
             text-decoration: none;
@@ -54,15 +58,24 @@ $lightGreen: #b9e7e7;
                 color: teal;
                 margin-bottom:20px;
             }
-            form{
+            .loginForm{
                 display: flex;
+                justify-content: space-between;
                 flex-direction: column;
                 padding: 20px;
                 background-color: transparent;
                 width: 400px;
                 gap: 40px;
             }
-
+            .RegisterForm{
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                padding: 20px;
+                background-color: transparent;
+                width: 400px;
+                gap: 40px;
+            }
             input{
                 padding: 20px;
                 border: 1px solid gray;
@@ -71,6 +84,9 @@ $lightGreen: #b9e7e7;
             }
 
             button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 padding: 20px;
                 border: none;
                 background-color: teal;
@@ -93,17 +109,19 @@ $lightGreen: #b9e7e7;
             .container{
                 padding: 10px 0px;
                 display:flex;
-                justify-content: space-between;
-                .logo{
-                    img{
-                       
-                    }
-                    
-                }
+                justify-content: space-between;     
+              
                 .links{
                     display: flex;
                     align-items: center;
-                    gap: 10px;
+                    gap: 50px;
+                }
+                .navRight{
+                    display: flex;
+                    justify-content: end;
+                   position:absolute;
+                    width: 90%;
+                    gap: 50px;                   
                 }
             }
         }
@@ -111,18 +129,37 @@ $lightGreen: #b9e7e7;
 
     
         //FOOTER
-        // footer{
-        //     margin-top: 100px;
-        //     padding:20px;
-        //     background-color: $lightGreen;
-        //     display: flex;
-        //     align-items:center;
-        //     justify-content: space-between;
-        //     font-size: 12px;
-        //     img{
-        //         height:50px;
-        //     }
+        .footer{
+            margin-top: 100px;
+            padding:20px;
+            background-color: $lightGreen;
+            display: flex;
+            align-items:center;
+            justify-content: space-between;
+            font-size: 12px;
+          
+        }
+        // .footer {
+        //     background-color: #f1f1f1;
+        //     text-align:right;
+        //     padding: 20px 0;
+        //     position: relative;
+        //     bottom: 0;
+        //     width: 100%;
         // }
+        
+        .Footer-bottomright{
+            flex: 3;
+            display: flex;
+           
+           
+        }
+        .Footer-footerIcon{
+            font-size: 80px;
+            margin-right: 40px;
+            color: #444;
+            cursor: pointer;
+        }
 
         //HOME PAGE
 

@@ -1,7 +1,7 @@
 
-import Navbar from "../Navbar/Navbar";
-import Footer from "../footer/Footer";
-import Header from "../header/Header";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 import "./home.css";
 import {Link} from "react-router-dom";
 

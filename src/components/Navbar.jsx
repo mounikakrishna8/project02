@@ -1,4 +1,4 @@
-git// import React from 'react';
+// import React from 'react';
 // import { Link } from 'react-router-dom';
 
 // const Navbar = () =>{
@@ -16,26 +16,24 @@ git// import React from 'react';
 
 
 // import React from 'react';
-import Logo from "../../Images/Logo.png";
+//import Logo from "../../Images/Logo.png";
 import {Link} from "react-router-dom";
 
 export default function Navbar() {
+
   return (
     <div className="navbar">
       <div className="container">
-        <div className="log">
-          {/* <img src={Logo} alt="" /> */}
-        </div>
         <div className="links">
           <Link className="links" to="/?category=crochet">
-            <h6>Crochet</h6>
+            <h6>Crochet </h6>
             <h6>Drafting Dress Patterns</h6>
             <h6>Quilting</h6>
           </Link>
-        <span>Username</span>
-        <span>Logout</span>
+        <span className="navRight">Username</span>
+        <span className="navRight">Logout</span>
         <span className="write">
-          <Link to="/write">Write</Link>
+          <Link className="links" to="/write">Write</Link>
         </span>
         </div>
       </div>

@@ -8,13 +8,12 @@ import {createBrowserRouter,RouterProvider} from 'react-router-dom';
 // import CreatePost from './src/components/CreatePost';
 
 
-import Home from "./components/Home/Home";
-import Register from './components/Register/Register';
-import Login from './components/Login/Login';
-
+import Home from "./pages/Home/Home";
+import Register from './components/RegisterForm';
+import LoginPage from './pages/LoginPage';
+import BlogPost from './components/BlogPost';
+import Write from './components/Write';
 import "./style.scss";
-import BlogPost from './components/BlogPost/BlogPost';
-import Write from './components/Write/Write';
 
 
 
@@ -38,7 +37,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login/>,
+    element: <LoginPage />,
   }
 ]);
 function App() {
