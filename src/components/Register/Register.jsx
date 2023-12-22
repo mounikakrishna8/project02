@@ -29,16 +29,16 @@ import {Link} from "react-router-dom";
 
 
 
-export default function Login() {
+export default function Register() {
   return (
     <div className="auth">
-        <h1>Login</h1>
+        <h1>Register</h1>
         <form>
-            <input type="text" placeholder="username"/>
-            <input type="password" placeholder="password"/>
+            <input required type="text" placeholder= "username"/>
+            <input required type="email" placeholder= "email"/>
+            <input required type="password" placeholder="password"/>
             <button>Login</button>
-            <p>Username or password is not valid!</p>
-            <span>Do not have an account? <Link to="/register">Create New Account</Link></span>
+            <span>Do you have an account? <Link to="/login">Login</Link></span>
 
             
 

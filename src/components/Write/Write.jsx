@@ -1,6 +1,6 @@
 //import React from 'react';
 
-const BlogList = () => {
+const Write = () => {
     //sample Data
     // const blogs = [
     //     { id: 1, title: 'Blog Post 1', content: 'content for blog post1.....' },
@@ -11,7 +11,7 @@ const BlogList = () => {
 
     return (
         <div>
-            {BlogList.map(blog => (
+            {Write.map(blog => (
                 <div key={blog.id}>
                     <h2>{blog.title}</h2>
                     <p>{blog.content}</p>
@@ -22,4 +22,4 @@ const BlogList = () => {
 
 };
 
-export default BlogList;
+export default Write;

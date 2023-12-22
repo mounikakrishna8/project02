@@ -22,7 +22,8 @@
  8. make it flex "display:flex"to add all the elements horizontal, then center them "align-item: center", added font-family,
  9. used fontawesome to import some social media icons to the topbar, used font awesome cdn link in index.html 
  10. used fontawesome search icon in topright element.
- 11. 
+ 11. styled the navbar using css.
+ 12. 
 
 
 

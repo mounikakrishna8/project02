@@ -1,0 +1,139 @@
+$lightGreen: #b9e7e7;
+
+.app{
+    display: flex;
+    justify-content: center;
+    .container{
+        width: 98%;
+
+
+        .links{
+            text-decoration: none;
+            color: inherit;
+
+            h6{
+                font-size: 16px;
+                font-weight: 300;
+            }
+            span{
+                cursor: pointer;
+            }
+
+            .write{
+                background-color: $lightGreen;
+                width: 50px;
+                height:50px;
+                border-radius:50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 300;
+                border: 1px solid white;
+
+
+                &:hover{
+                    color: teal;
+                    background-color: white;
+                    border: 1px solid teal;
+                }
+            }
+
+           
+
+        }
+        //LogIn & Register
+        .auth{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #b9e7e7;
+            h1{
+                font-size: 40px;
+                color: teal;
+                margin-bottom:20px;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                background-color: transparent;
+                width: 400px;
+                gap: 40px;
+            }
+
+            input{
+                padding: 20px;
+                border: 1px solid gray;
+                background-color: transparent;
+                
+            }
+
+            button{
+                padding: 20px;
+                border: none;
+                background-color: teal;
+                color: white;
+                cursor: pointer;
+            }
+            p{
+                text-align: center;
+                color: red;
+            }
+            span{
+                text-align: center;
+            }
+
+        }
+
+        //NAVBAR
+
+        .navbar{
+            .container{
+                padding: 10px 0px;
+                display:flex;
+                justify-content: space-between;
+                .logo{
+                    img{
+                       
+                    }
+                    
+                }
+                .links{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+            }
+        }
+
+
+    
+        //FOOTER
+        // footer{
+        //     margin-top: 100px;
+        //     padding:20px;
+        //     background-color: $lightGreen;
+        //     display: flex;
+        //     align-items:center;
+        //     justify-content: space-between;
+        //     font-size: 12px;
+        //     img{
+        //         height:50px;
+        //     }
+        // }
+
+        //HOME PAGE
+
+        .home{
+            .post{
+                margin-top :50px;
+                display:flex;
+                flex-direction: column;
+                gap:150px;
+            }
+        }
+       
+    }
+}
