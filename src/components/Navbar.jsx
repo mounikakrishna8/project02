@@ -14,12 +14,18 @@
 // export default Navbar;
 
 
+// import {useState} from "react";
+import { useContext } from "react";
 
-// import React from 'react';
-//import Logo from "../../Images/Logo.png";
 import {Link} from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar() { // need to pass the parameter {isEditing}
+   //funtionality for create button
+  //  const [isEditing, setIsEditng] = useState(initialIsEditing);
+
+  //  const setEditMode = () => setIsEditng(true);
+  //  const setNormalMode = () => setIsEditng(false);
+     const { currentUser, logout } = useContext();
 
   return (
     <div className="navbar">
@@ -27,30 +33,20 @@ export default function Navbar() {
         <div className="links">
           <Link className="links" to="/?category=crochet">
             <h6>Crochet </h6>
-            <h6>Drafting Dress Patterns</h6>
+            <h6> Dress Patterns</h6>
             <h6>Quilting</h6>
           </Link>
-        <span className="navRight">Username</span>
-        <span className="navRight">Logout</span>
-        <span className="write">
-          <Link className="links" to="/write">Write</Link>
+        <span className="navRight">{currentUser?.username}</span>
+        <span onClick={logout}>Logout</span>
+        <Link className="link" to="/login"> Login </Link>
+        <span className="create">
+          <Link className="links" to="/create">Create</Link>
         </span>
         </div>
       </div>
     </div>
 
 
-    // <div className="navbar">
-    //   <div className="navbarCenter">
-    //     <ul className="navbarList">
-    //       <li className="navbarListItem">HOME</li>
-    //       <li className="navbarListItem">ABOUT</li>
-    //       <li className="navbarListItem">CONTACT</li>
-    //       <li className="navbarListItem">BLOG</li>
-    //       <li className="navbarListItem">LOGOUT</li>
-    //     </ul>
-    //   </div>
-    // </div>
   );
 }
 
