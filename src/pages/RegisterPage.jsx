@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-import Register from '../components/RegisterForm.jsx';
+import Register from '../components/RegisterForm/RegisterForm.jsx';
 
 export default function RegisterPage() {
   const navigate = useNavigate();

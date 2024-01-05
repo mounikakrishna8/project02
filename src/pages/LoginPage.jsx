@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-import Login from '../components/LoginForm.jsx';
+import Login from '../components/LoginForm/LoginForm.jsx';
 
 export default function LoginPage() {
   const navigate = useNavigate();

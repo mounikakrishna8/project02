@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import CreatePost from './pages/CreatePost';
 //import LogoutButton from './components/LogoutButton';
 import SinglePostPage from './pages/SinglePage';
+import Write from './pages/Write/Write.jsx';
 
 import "./style.scss";
 
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/Register",
         element: <RegisterPage />,
+      },
+      {
+        path:"/Write",
+        element: < Write/>,
       }
 
 ]);
