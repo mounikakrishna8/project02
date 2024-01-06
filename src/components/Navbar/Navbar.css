@@ -1,0 +1,27 @@
+
+.app{
+    .container{
+        width: 98%;
+    }
+}
+.navbar{
+    .container{
+        padding: 10px 0px;
+        display:flex;
+        justify-content: space-between;     
+      
+        .links{
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            text-decoration: none;
+        }
+        .navRight{
+            display: flex;
+            justify-content: flex-end;
+           position:absolute;
+            width: 90%;
+            gap: 50px;                   
+        }
+    }
+}
