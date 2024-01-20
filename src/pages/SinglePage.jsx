@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import Edit from "../assets/edit.png";
 import Delete from "../assets/delete.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Menu from "../components/Menu";
+import Menu from "../components/Menu/Menu.jsx";
 import axios from "axios";
 import moment from "moment";
-import { useContext } from "react";
-import { AuthContext } from "../context/authContext";
+//import { useContext } from "react";
+import { AuthContext } from "../context/authContext.jsx";
 import DOMPurify from "dompurify";
 
-const Single = () => {
+export default function Single() {
   const [post, setPost] = useState({});
 
   const location = useLocation();
@@ -17,7 +17,7 @@ const Single = () => {
 
   const postId = location.pathname.split("/")[2];
 
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser } = AuthContext();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,29 +31,21 @@ const Single = () => {
     fetchData();
   }, [postId]);
 
-  const handleDelete = async ()=>{
+  const handleDelete = async () => {
     try {
       await axios.delete(`/posts/${postId}`);
-      navigate("/")
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
-  }
-
-  // const getText = (html) =>{
-  //   const doc = new DOMParser().parseFromString(html, "text/html")
-  //   return doc.body.textContent
-  // }
+  };
 
   return (
     <div className="single">
       <div className="content">
         <img src={`../upload/${post?.img}`} alt="" />
         <div className="user">
-          {post.userImg && <img
-            src={post.userImg}
-            alt=""
-          />}
+          {post.userImg && <img src={post.userImg} alt="" />}
           <div className="info">
             <span>{post.username}</span>
             <p>Posted {moment(post.date).fromNow()}</p>
@@ -72,10 +64,9 @@ const Single = () => {
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(post.desc),
           }}
-        ></p>      </div>
-      <Menu cat={post.cat}/>
+        ></p>{" "}
+      </div>
+      <Menu crafts={post.crafts} />
     </div>
   );
-};
-
-export default Single;
+}

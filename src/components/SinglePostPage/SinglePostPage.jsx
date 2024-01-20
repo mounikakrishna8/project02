@@ -1,20 +1,20 @@
 //import react from 'react';
-import { useParams } from "react-router-dom";
+//import { useParams } from "react-router-dom";
 
 function SinglePostPage() {
-  const { id } = useParams(); //Get post ID from URL
+  //const { id } = useParams(); //Get post ID from URL
 
   //Sample or example post data
-  const post = {
-    id: id,
-    title: `Blog Post ${id}`,
-    content: `Content for blog post ${id}...`,
-    //In a real app, you'd fetch this data from the backend
-  };
+  // const post = {
+  //   id: id,
+  //   title: `Blog Post ${id}`,
+  //   content: `Content for blog post ${id}...`,
+  //   //In a real app, you'd fetch this data from the backend
+  // };
   return (
     <div>
-      <h2>{post.title}</h2>
-      <p>{post.content}</p>
+      {/* <h2>{post.title}</h2>
+      <p>{post.content}</p> */}
     </div>
   );
 }

@@ -1,0 +1,23 @@
+.newsletter {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 10px;
+  width: 300px;
+  /* gap: 30px; */
+}
+/* input {
+  padding: 10px;
+  border: 1px solid gray;
+  background-color: transparent;
+} */
+
+button {
+  cursor: pointer;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: 10px;
+  /* border: none; */
+}

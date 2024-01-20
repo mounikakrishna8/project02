@@ -1,53 +1,46 @@
-.app{
-    .container{
-        width: 98%;
-        .auth{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #b9e7e7;
-            h1{
-                font-size: 40px;
-                color: teal;
-                margin-bottom:20px;
-            }
-          
-            .RegisterForm{
-                display: flex;
-                justify-content: space-between;
-                flex-direction: column;
-                padding: 20px;
-                background-color: transparent;
-                width: 400px;
-                gap: 40px;
-            }
-            input{
-                padding: 20px;
-                border: 1px solid gray;
-                background-color: transparent;
-                
-            }
-        
-            button{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 20px;
-                border: none;
-                background-color: teal;
-                color: white;
-                cursor: pointer;
-            }
-            p{
-                text-align: center;
-                color: red;
-            }
-            span{
-                text-align: center;
-            }
-        
-        }
-    }
+.auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #b9e7e7;
+  h1 {
+    font-size: 40px;
+    color: teal;
+    margin-bottom: 20px;
+  }
+
+  .RegisterForm {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px;
+    background-color: transparent;
+    width: 400px;
+    gap: 40px;
+  }
+  input {
+    padding: 20px;
+    border: 1px solid gray;
+    background-color: transparent;
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: none;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+  }
+  p {
+    text-align: center;
+    color: red;
+  }
+  span {
+    text-align: center;
+  }
 }

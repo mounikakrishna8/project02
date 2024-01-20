@@ -1,14 +1,45 @@
-.app{
-    .container{
-        width: 98%;
-        .header{
-            display: flex;
-            justify-content: center;
-            position: absolute;
-            top:0;
-            left:0;
-            width: 100%;
-            height: 100%;
-        }
-    }
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #08c463;
 }
+
+.logo {
+  img {
+    display: flex;
+    justify-content: right;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    padding: 2px;
+    width: 100px;
+    gap: 10px;
+  }
+}
+
+.navLeft {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  z-index: 1;
+
+  /* z-index is to give height priority to the container */
+}
+
+.links {
+  display: flex;
+  text-decoration: none;
+}
+
+.navRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 65%;
+  gap: 30px;
+}
+
+/* .logo {
+  img {
+    border-radius: 8px;
+  }
+} */

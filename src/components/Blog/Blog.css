@@ -1,0 +1,17 @@
+.Blog {
+  display: flex;
+  padding: 25px 70px 50px 3px;
+}
+
+.posts {
+  flex-direction: column;
+  justify-content: center;
+}
+button {
+  padding: 3px;
+  /* margin: 5px; */
+}
+h1,
+p {
+  padding: 3px;
+}

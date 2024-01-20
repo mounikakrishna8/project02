@@ -1,18 +1,19 @@
-import  { useState } from "react";
+import { useState } from "react";
 import ReactQuill from "react-quill";
-//import "react-quill/dist/quill.snow.css";
+import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import moment from "moment";
+import "./WritePost.css";
 
-const Write = () => {
+export default function WritePost() {
   const state = useLocation().state;
   const [value, setValue] = useState(state?.title || "");
   const [title, setTitle] = useState(state?.desc || "");
   const [file, setFile] = useState(null);
-  const [cat, setCat] = useState(state?.cat || "");
+  const [crafts, setCrafts] = useState(state?.craft || "");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const upload = async () => {
     try {
@@ -34,17 +35,17 @@ const Write = () => {
         ? await axios.put(`/posts/${state.id}`, {
             title,
             desc: value,
-            cat,
+            crafts,
             img: file ? imgUrl : "",
           })
         : await axios.post(`/posts/`, {
             title,
             desc: value,
-            cat,
+            crafts,
             img: file ? imgUrl : "",
             date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
           });
-          navigate("/")
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -93,76 +94,30 @@ const Write = () => {
         </div>
         <div className="item">
           <h1>Category</h1>
-          <div className="cat">
+          <div className="crafts">
             <input
               type="radio"
-              checked={cat === "art"}
-              name="cat"
+              checked={crafts === "art"}
+              name="crafts"
               value="art"
               id="art"
-              onChange={(e) => setCat(e.target.value)}
+              onChange={(e) => setCrafts(e.target.value)}
             />
-            <label htmlFor="art">Art</label>
+            <label htmlFor="crochet">Crochet</label>
           </div>
-          <div className="cat">
+          <div className="crafts">
             <input
               type="radio"
-              checked={cat === "science"}
-              name="cat"
-              value="science"
-              id="science"
-              onChange={(e) => setCat(e.target.value)}
+              checked={crafts === "arts&crafts"}
+              name="crafts"
+              value="arts&crafts"
+              id="arts&crafts"
+              onChange={(e) => setCrafts(e.target.value)}
             />
-            <label htmlFor="science">Science</label>
-          </div>
-          <div className="cat">
-            <input
-              type="radio"
-              checked={cat === "technology"}
-              name="cat"
-              value="technology"
-              id="technology"
-              onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="technology">Technology</label>
-          </div>
-          <div className="cat">
-            <input
-              type="radio"
-              checked={cat === "cinema"}
-              name="cat"
-              value="cinema"
-              id="cinema"
-              onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="cinema">Cinema</label>
-          </div>
-          <div className="cat">
-            <input
-              type="radio"
-              checked={cat === "design"}
-              name="cat"
-              value="design"
-              id="design"
-              onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="design">Design</label>
-          </div>
-          <div className="cat">
-            <input
-              type="radio"
-              checked={cat === "food"}
-              name="cat"
-              value="food"
-              id="food"
-              onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="food">Food</label>
+            <label htmlFor="Quilt">Quilting</label>
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default Write;
+}
