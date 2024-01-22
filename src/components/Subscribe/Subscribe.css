@@ -1,3 +1,6 @@
+.NewLetter {
+  border: 3px solid gray;
+}
 .newsletter {
   display: flex;
   justify-content: space-between;
@@ -6,11 +9,6 @@
   width: 300px;
   /* gap: 30px; */
 }
-/* input {
-  padding: 10px;
-  border: 1px solid gray;
-  background-color: transparent;
-} */
 
 button {
   cursor: pointer;

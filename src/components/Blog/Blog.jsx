@@ -1,5 +1,5 @@
-// import Navbar from "../Navbar/Navbar.jsx";
-// import Footer from "../Footer/Footer.jsx";
+import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
 
 import "./Blog.css";
 
@@ -30,7 +30,7 @@ const posts = [
 export default function Blog() {
   return (
     <div className="Blog">
-      {/* <Navbar /> */}
+      <Header />
       <div className="posts">
         {posts.map((post) => (
           <div className="post" key={post.id}>
@@ -48,7 +48,7 @@ export default function Blog() {
           </div>
         ))}
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

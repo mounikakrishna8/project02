@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home/Home.jsx";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
-import CreatePost from "./pages/CreatePost";
+
 //import LogoutButton from './components/LogoutButton';
 import SinglePostPage from "./pages/SinglePage";
 import WritePost from "./pages/WritePost/WritePost.jsx";
@@ -20,10 +20,6 @@ const router = createBrowserRouter([
   {
     path: "/post/:id",
     element: <SinglePostPage />,
-  },
-  {
-    path: "/CreatePost",
-    element: <CreatePost />,
   },
   {
     path: "/login",

@@ -16,7 +16,7 @@ export default function Subscribe({ onSubscribe }) {
   };
 
   return (
-    <div className="NewsLetter">
+    <div className="newletter_container">
       <h3>NewsLetter</h3>
 
       <form onSubmit={handleSubmit}>

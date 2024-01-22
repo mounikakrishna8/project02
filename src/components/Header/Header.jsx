@@ -49,7 +49,7 @@ export default function Header() {
         <Link className="links" to="/signUp">
           <h4>SignUp</h4>
         </Link>
-        <Link className="links" to="/write">
+        <Link className="links" to="/writePost">
           <h4>Write</h4>
         </Link>
         <Link className="links" to="/cart">

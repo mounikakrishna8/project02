@@ -7,7 +7,7 @@ export default function BlogPage() {
 
   const handleBlog = async (event, BData) => {
     event.preventDefault();
-
+    // making a http request
     const res = await axios.post("/api/auth", BData);
 
     if (res.data.success) {
