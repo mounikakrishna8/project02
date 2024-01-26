@@ -5,6 +5,8 @@ import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import moment from "moment";
 import "./WritePost.css";
+// import Header from "../../components/Header/Header.jsx";
+// import Footer from "../../components/Footer/Footer.jsx";
 
 export default function WritePost() {
   const state = useLocation().state;
@@ -53,6 +55,7 @@ export default function WritePost() {
 
   return (
     <div className="add">
+      {/* <Header /> */}
       <div className="content">
         <input
           type="text"
@@ -118,6 +121,7 @@ export default function WritePost() {
           </div>
         </div>
       </div>
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -1,22 +1,35 @@
+import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import "./RegisterForm.css"
+import { useNavigate, Link } from "react-router-dom";
+import "./SignUpPage.css";
 
-export default function Register({ onCreate }) {
+export default function SignUpPage() {
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
 
-  const handleSubmit = (e) => {
-    //  logic for creating new account
-    onCreate(e, {
-      email: emailValue,
-      password: passwordValue,
-    });
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const userData = { email: emailValue, password: passwordValue };
+    console.log(userData);
+
+    const res = await axios.post("/api/signUp", userData);
+    console.log("Test1", res);
+    if (res.data.success) {
+      console.log(res.data);
+      navigate("/signUp");
+    }
   };
+
   return (
     <div className="auth">
       <h1>Create New Account</h1>
-      <form  onSubmit={handleSubmit}>
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
         <div className="RegisterForm">
           <label>email:</label>
           <input
@@ -37,10 +50,11 @@ export default function Register({ onCreate }) {
         </div>
         <button type="submit">Submit</button>
         <p>Username or password is not valid!</p>
-        <span >
+        <span>
           Do you have an account? <Link to="/login">Create New Account</Link>
         </span>
       </form>
     </div>
+    // <Register onLogin={handleCreate} />
   );
 }

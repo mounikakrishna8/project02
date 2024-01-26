@@ -9,27 +9,30 @@ export default class CreatePost extends Model {
 }
 
 CreatePost.init(
-    {
-       blogPostId:{
-        type: DataTypes.INTEGER,
-        autoIncrement:true,
-        primaryKey: true,
-       },
-       title: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      overview: {
-        type: DataTypes.TEXT,
-      },
-      postedDate: {
-        type: DataTypes.DATE,
-      },
-    
+  {
+    blogPostId: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    overview: {
+      type: DataTypes.TEXT,
+    },
+    overviewImg: {
+      type: DataTypes.TEXT,
+    },
+    postedDate: {
+      type: DataTypes.DATE,
     },
 
-    {
-        modelName: 'createBlogPost',
-        sequelize: db,
-    }
+  },
+
+  {
+    modelName: 'createBlogPost',
+    sequelize: db,
+  }
 )

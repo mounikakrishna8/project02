@@ -10,10 +10,18 @@ export default class User extends Model {
 
 User.init(
   {
-    userId: {
+    id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
+    },
+    firstname: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    lastname: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     email: {
       type: DataTypes.STRING,
@@ -24,9 +32,23 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    createdat: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    modifiedat: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    }
   },
   {
     modelName: 'user',
     sequelize: db,
   },
 );
+
+db.sync().then(() => {
+  console.log('Database Synchronized');
+}).catch((error) => {
+  console.log('Error synchronizing Database', error);
+});

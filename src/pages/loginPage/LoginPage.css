@@ -4,10 +4,10 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #b9e7e7;
+  background-color: #40b87a;
   h1 {
     font-size: 40px;
-    color: teal;
+    color: black;
     margin-bottom: 20px;
   }
   .loginForm {
@@ -21,7 +21,7 @@
   }
   input {
     padding: 20px;
-    border: 1px solid gray;
+    border: 1px solid black;
     background-color: transparent;
   }
 
@@ -31,7 +31,7 @@
     align-items: center;
     padding: 20px;
     border: none;
-    background-color: teal;
+    background-color: black;
     color: white;
     cursor: pointer;
   }

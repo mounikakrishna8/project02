@@ -11,7 +11,7 @@ authRoutes.post('/api/auth', async (req, res) => {
 
   if (user && user.password === password) {
     req.session.userId = user.userId;
-    res.json({ success: true });
+    res.json({ success: true, email: email });
   } else {
     res.json({ success: false });
   }

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Logo from "../../assets/Logo.png";
+// import Logo from "../../assets/Images/logo/Logo.png";
 import "./Header.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
@@ -18,9 +18,11 @@ export default function Header() {
 
     <section className="header">
       {/* division for logo */}
-      <div className="logo">
-        <img src={Logo} alt="" />
-      </div>
+      <Link to="/">
+        <div className="logo">
+          <img src="/assets/Images/logo/Logo.png" alt="" />
+        </div>
+      </Link>
 
       {/* division for navigation on leftside of the header */}
       <div className="navLeft">
@@ -54,6 +56,7 @@ export default function Header() {
         </Link>
         <Link className="links" to="/cart">
           <ShoppingCartIcon fontSize="large" />
+          <span className="nav__itemLineTwo">0</span>
         </Link>
       </div>
     </section>

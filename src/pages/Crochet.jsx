@@ -1,21 +1,24 @@
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import Crochet from "../components/Crochet/Crochet.jsx";
+// import axios from "axios";
+// import { useNavigate } from "react-router-dom";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 export default function CrochetPage() {
-  const navigate = useNavigate();
-  const handleCrochet = async (event, CData) => {
-    event.preventDefault();
+  // const navigate = useNavigate();
+  // const handleCrochet = async (event, CData) => {
+  //   event.preventDefault();
 
-    const res = await axios.post("/api/auth", CData);
+  //   const res = await axios.post("/api/auth", CData);
 
-    if (res.data.success) {
-      navigate("/Crochet");
-    }
-  };
+  //   if (res.data.success) {
+  //     navigate("/Crochet");
+  //   }
+  // };
   return (
     <>
-      <Crochet onCrochet={handleCrochet} />
+      <Header />
+      <h2>crochet</h2>
+      <Footer />
     </>
   );
 }

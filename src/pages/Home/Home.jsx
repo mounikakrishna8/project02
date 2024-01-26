@@ -2,12 +2,13 @@ import Header from "../../components/Header/Header.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import Subscribe from "../../components/Subscribe/Subscribe.jsx";
 // import Blog from "../../components/Blog/Blog.jsx";
-import crochetImg from "../../assets/crochetImg.jpg";
-import QuiltingImg from "../../assets/QuiltingImg.jpeg";
-import DressPatternsImg from "../../assets/DressPatternsImg.jpg";
+import crochetImg from "../../../public/assets/Images/Home/crochetImg.jpg";
+import QuiltingImg from "../../../public/assets/Images/Home/QuiltingImg.jpeg";
+import DressPatternsImg from "../../../public/assets/Images/Home/DressPatternsImg.jpg";
 import "./Home.css";
 import { Link } from "react-router-dom";
-
+// import { useState } from "react";
+// const [user, setUser] = useState();
 export default function Home() {
   const posts = [
     {
@@ -35,24 +36,30 @@ export default function Home() {
       <Header />
 
       <div className="outer-wrapper">
-        <div className="wrapper1">
-          {/* <Link to="http://localhost:5173/Crochet"> Crochet</Link> */}
-          {/* <Crochet /> */}
-          <img src={crochetImg} alt="crochetImage" />
-          <h3>Crochet</h3>
-        </div>
+        <Link to="/crochet" style={{ textDecoration: "none" }}>
+          <div className="wrapper1">
+            {/* <Link to="http://localhost:5173/Crochet"> Crochet</Link> */}
+            {/* <Crochet /> */}
+            <img src={crochetImg} alt="crochetImage" />
+            <h3>Crochet</h3>
+          </div>
+        </Link>
 
-        <div className="wrapper1">
-          {/* <Quilting /> */}
-          <img src={QuiltingImg} alt="Quiltingtools" />
-          <h3>Quilting</h3>
-        </div>
+        <Link to="/quilting" style={{ textDecoration: "none" }}>
+          <div className="wrapper1">
+            {/* <Quilting /> */}
+            <img src={QuiltingImg} alt="Quiltingtools" />
+            <h3>Quilting</h3>
+          </div>
+        </Link>
 
-        <div className="wrapper1">
-          {/* <DressPatterns /> */}
-          <img src={DressPatternsImg} alt="DressPatternsImg" />
-          <h3>DressPatterns</h3>
-        </div>
+        <Link to="/dresspatters" style={{ textDecoration: "none" }}>
+          <div className="wrapper1">
+            {/* <DressPatterns /> */}
+            <img src={DressPatternsImg} alt="DressPatternsImg" />
+            <h3>DressPatterns</h3>
+          </div>
+        </Link>
       </div>
 
       {/* show latest Blog Post or reviews */}
@@ -73,7 +80,9 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <Subscribe />
+      <div className="news-letter-section">
+        <Subscribe />
+      </div>
       <Footer />
     </section>
   );

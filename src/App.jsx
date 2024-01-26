@@ -1,33 +1,29 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/Home/Home.jsx";
-import RegisterPage from "./pages/RegisterPage";
-import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/signUpPage/SignUpPage.jsx";
+import LoginPage from "./pages/loginPage/LoginPage.jsx";
 
 //import LogoutButton from './components/LogoutButton';
-import SinglePostPage from "./pages/SinglePage";
+// import SinglePostPage from "./pages/SinglePostPage.jsx";
 import WritePost from "./pages/WritePost/WritePost.jsx";
 import QuiltingPage from "./pages/Quilting.jsx";
 import CrochetPage from "./pages/Crochet.jsx";
 import DressPatternsPage from "./pages/DressPatternsPage.jsx";
-import BlogPage from "./pages/BlogPage.jsx";
-
+import BlogPage from "./pages/blogpage/BlogPage.jsx";
+import Shop from "./pages/Shop/Shop.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
   },
   {
-    path: "/post/:id",
-    element: <SinglePostPage />,
-  },
-  {
     path: "/login",
     element: <LoginPage />,
   },
   {
-    path: "/Register",
-    element: <RegisterPage />,
+    path: "/signUp",
+    element: <SignUpPage />,
   },
   {
     path: "/WritePost",
@@ -48,6 +44,10 @@ const router = createBrowserRouter([
   {
     path: "/Blog",
     element: <BlogPage />,
+  },
+  {
+    path: "/shop",
+    element: <Shop />,
   },
 ]);
 
