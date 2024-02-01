@@ -2,6 +2,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import "./BlogPage.css";
 
 export default function BlogPage() {
   const navigate = useNavigate();

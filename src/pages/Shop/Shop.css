@@ -5,7 +5,6 @@
 }
 
 .shop {
-  /* display: flex; */
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
@@ -24,8 +23,9 @@
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
 
-.shop__row {
+.shop-row {
   display: flex;
+  justify-content: center;
   z-index: 1;
   margin-left: 5px;
   margin-right: 5px;

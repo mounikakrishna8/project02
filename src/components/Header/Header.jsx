@@ -1,16 +1,42 @@
 import { Link } from "react-router-dom";
-// import Logo from "../../assets/Images/logo/Logo.png";
+import { useSelector } from "react-redux";
+import SearchIcon from "@mui/icons-material/Search";
 import "./Header.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Header() {
-  // need to pass the parameter {isEditing}
-  //funtionality for create button
-  //  const [isEditing, setIsEditng] = useState(initialIsEditing);
+  const [username, setUsername] = useState(null);
+  const cart = useSelector((state) => state.cart);
 
-  //  const setEditMode = () => setIsEditng(true);
-  //  const setNormalMode = () => setIsEditng(false);
-  // const { currentUser, logout } = useContext();
+  // to put user info inplace of login
+  useEffect(() => {
+    axios
+      .get("http://localhost:4090/profile", { withCredentials: true })
+      .then((response) => {
+        setUsername(response.data.username);
+      })
+      .catch((error) => {
+        console.error("There was an error fetching the user info:", error);
+      });
+  }, []);
+
+  //logout functionality
+  async function logout() {
+    try {
+      // Invalidated the session on the server-side
+      await axios.post(
+        "http://localhost:4090/logout",
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  }
 
   return (
     //fragments:-React Fragment is a feature in React that allows you to return multiple elements from a React component by allowing you to group a list of children without adding extra nodes to the DOM.
@@ -25,12 +51,13 @@ export default function Header() {
       </Link>
 
       {/* division for navigation on leftside of the header */}
+
       <div className="navLeft">
         <Link className="links" to="/Crochet">
           <h4>Crochet</h4>
         </Link>
-        <Link className="links" to="/DressPatterns">
-          <h4>Dress Patterns</h4>
+        <Link className="links" to="/Patterns">
+          <h4>Patterns</h4>
         </Link>
         <Link className="links" to="/Quilting">
           <h4>Quilting</h4>
@@ -43,20 +70,47 @@ export default function Header() {
         </Link>
       </div>
 
+      {/* header search icon from material ui */}
+
+      <div className="header-search">
+        <input type="text" id="header-name" className="header-searchInput" />
+        <SearchIcon className="header-searchIcon" />
+      </div>
+
       {/* division for navigation on rightside of the header */}
       <div className="navRight">
-        <Link className="links" to="/login">
-          <h4>Login</h4>
-        </Link>
-        <Link className="links" to="/signUp">
-          <h4>SignUp</h4>
-        </Link>
-        <Link className="links" to="/writePost">
-          <h4>Write</h4>
-        </Link>
-        <Link className="links" to="/cart">
-          <ShoppingCartIcon fontSize="large" />
-          <span className="nav__itemLineTwo">0</span>
+        {/* if we have user name create post or else show login register */}
+
+        {username && (
+          <>
+            <Link to="/profile">{username}</Link>
+            <Link className="links" to="/writePost">
+              <h4>Write</h4>
+            </Link>
+            <a onClick={logout}>Logout</a>
+          </>
+        )}
+        {!username && (
+          <>
+            <Link className="links" to="/login">
+              <h4>Login</h4>
+            </Link>
+            <Link className="links" to="/signUp">
+              <h4>SignUp</h4>
+            </Link>
+          </>
+        )}
+
+        {/* here we gave custom style to remove the default decor i.e.underline */}
+
+        <Link to="/checkout" style={{ textDecoration: "none" }}>
+          <div className="nav__itemBasket">
+            {/* <span className="nav__itemLineOne">Basket</span> */}
+            <ShoppingCartIcon fontSize="large" />
+            <span className="nav__itemLineTwo nav__basketCount">
+              {cart.length}
+            </span>
+          </div>
         </Link>
       </div>
     </section>

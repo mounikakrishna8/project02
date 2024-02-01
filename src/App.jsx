@@ -1,17 +1,18 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/Home/Home.jsx";
-import SignUpPage from "./pages/signUpPage/SignUpPage.jsx";
+import SignUpPage from "./pages/SignUpPage/SignUpPage.jsx";
 import LoginPage from "./pages/loginPage/LoginPage.jsx";
 
 //import LogoutButton from './components/LogoutButton';
 // import SinglePostPage from "./pages/SinglePostPage.jsx";
 import WritePost from "./pages/WritePost/WritePost.jsx";
-import QuiltingPage from "./pages/Quilting.jsx";
-import CrochetPage from "./pages/Crochet.jsx";
-import DressPatternsPage from "./pages/DressPatternsPage.jsx";
+import QuiltingPage from "./pages/quiltingpage/Quilting.jsx";
+import CrochetPage from "./pages/crochetpage/Crochet.jsx";
+import DressPatternsPage from "./pages/patternspage/PatternsPage.jsx";
 import BlogPage from "./pages/blogpage/BlogPage.jsx";
 import Shop from "./pages/Shop/Shop.jsx";
+import Checkout from "./pages/checkoutpage/Checkout.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
   {
     path: "/shop",
     element: <Shop />,
+  },
+  {
+    path: "/checkout",
+    element: <Checkout />,
   },
 ]);
 

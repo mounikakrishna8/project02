@@ -3,7 +3,8 @@
 // import { useState } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import Products from "./Products.jsx";
+import Products from "./components/Product.jsx";
+
 import "./Shop.css";
 
 export default function Shop() {
@@ -26,50 +27,58 @@ export default function Shop() {
     <div className="shop">
       <div className="products"></div>
       <Header />
-      <img
+      {/* <img
         src="../assets/Images/shop/shop-img.jpg"
         alt="shop-image"
         className="home__image"
-      />
+      /> */}
       <button className="filter-btn">filter</button>
       <div className="shop-row">
         <Products
           id="4903851"
+          image="../assets/Images/shop/pink&blue hairclips.jpeg"
           title="Buttlerfly hair accessory"
           price={2.5}
           rating={4}
-          image="../assets/Images/shop/pink&blue hairclips.jpeg"
         />
         <Products
-          id="4903852"
-          title="Buttlerfly hair accessory"
-          price={2.5}
-          rating={4}
+          id="4903851"
           image="../assets/Images/shop/red hairclips.jpeg
           "
+          title="Buttlerfly hair accessory"
+          price={2.5}
+          rating={4}
         />
         <Products
           id="4903852"
+          image="../assets/Images/shop/butterfly.jpeg
+          "
           title="Buttlerfly hair accessory"
           price={2.5}
           rating={5}
-          image="../assets/Images/shop/butterfly.jpeg
-          "
         />
         <Products
           id="4903854"
+          image="../assets/Images/shop/hairclips.jpeg"
           title="Buttlerfly hair accessory"
           price={2.5}
           rating={5}
-          image="../assets/Images/shop/hairclips.jpeg"
-        />{" "}
+        />
         <Products
           id="4903855"
+          image="../assets/Images/shop/mixed color hairclips.jpeg
+          "
           title="Buttlerfly hair accessory"
           price={2.5}
           rating={5}
+        />
+        <Products
+          id="4903856"
           image="../assets/Images/shop/mixed color hairclips.jpeg
           "
+          title="Buttlerfly hair accessory"
+          price={2.5}
+          rating={5}
         />
       </div>
       <Footer />

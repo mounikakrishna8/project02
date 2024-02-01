@@ -2,59 +2,60 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./SignUpPage.css";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 export default function SignUpPage() {
-  const [emailValue, setEmailValue] = useState("");
-  const [passwordValue, setPasswordValue] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
+  async function signup(e) {
     e.preventDefault();
-    const userData = { email: emailValue, password: passwordValue };
+    const userData = { username: username, password: password };
     console.log(userData);
 
-    const res = await axios.post("/api/signUp", userData);
+    const response = await axios.post(
+      "http://localhost:4090/api/signUp",
+      userData
+    );
     console.log("Test1", res);
-    if (res.data.success) {
-      console.log(res.data);
-      navigate("/signUp");
+    if (response.status === 200) {
+      // console.log(res.data);
+      alert("signedUp successfully");
+    } else {
+      alert("registration failed");
     }
-  };
-
+  }
   return (
-    <div className="auth">
-      <h1>Create New Account</h1>
-      <form
-        onSubmit={(e) => {
-          handleSubmit(e);
-        }}
-      >
-        <div className="RegisterForm">
-          <label>email:</label>
-          <input
-            type="text"
-            value={emailValue}
-            onChange={(e) => setEmailValue(e.target.value)}
-            placeholder="email"
-          />
-        </div>
-        <div className="RegisterForm">
-          <lable>Password:</lable>
-          <input
-            type="password"
-            value={passwordValue}
-            onChange={(e) => setPasswordValue(e.target.value)}
-            placeholder="password"
-          />
-        </div>
-        <button type="submit">Submit</button>
-        <p>Username or password is not valid!</p>
-        <span>
-          Do you have an account? <Link to="/login">Create New Account</Link>
-        </span>
-      </form>
-    </div>
-    // <Register onLogin={handleCreate} />
+    <>
+      <Header />
+      <div className="auth">
+        <h1>Create New Account</h1>
+        <form onSubmit={signup}>
+          <div className="RegisterForm">
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="username"
+            />
+          </div>
+          <div className="RegisterForm">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="password"
+            />
+          </div>
+          <button type="submit">Submit</button>
+
+          <span>
+            Do you have an account? <Link to="/login">Login</Link>
+          </span>
+        </form>
+      </div>
+      <Footer />
+    </>
   );
 }

@@ -5,7 +5,7 @@ import signUpRoutes from "./signUp.routes.js";
 
 const router = Router();
 
-router.use('', authRoutes);
+router.use('/api', authRoutes);
 router.use('/api', signUpRoutes)
 
 export default router;

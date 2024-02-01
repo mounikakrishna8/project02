@@ -1,14 +1,13 @@
 import Header from "../../components/Header/Header.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import Subscribe from "../../components/Subscribe/Subscribe.jsx";
-// import Blog from "../../components/Blog/Blog.jsx";
+
 import crochetImg from "../../../public/assets/Images/Home/crochetImg.jpg";
 import QuiltingImg from "../../../public/assets/Images/Home/QuiltingImg.jpeg";
 import DressPatternsImg from "../../../public/assets/Images/Home/DressPatternsImg.jpg";
 import "./Home.css";
 import { Link } from "react-router-dom";
-// import { useState } from "react";
-// const [user, setUser] = useState();
+
 export default function Home() {
   const posts = [
     {

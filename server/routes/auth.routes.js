@@ -1,17 +1,25 @@
 import { Router } from "express";
 import { User } from "../models/index.js";
+import * as jwt from 'jsonwebtoken';
 
 import { loginRequired } from "../middlewares/auth.middleware.js";
 
 const authRoutes = Router();
 
-authRoutes.post('/api/auth', async (req, res) => {
-  const { email, password } = req.body;
-  const user = await User.findOne({ where: { email: email } });
+authRoutes.post('/login', async (req, res) => {
+  const { username, password } = req.body;
+  const user = await User.findOne({ where: { username: username } });
 
   if (user && user.password === password) {
+    console.log(user);
+    jwt.sign({ username }, 'secret', {}, (err, token) => {
+      if (err) throw err;
+      res.cookie('token', token).json({
+        username
+      });
+    })
     req.session.userId = user.userId;
-    res.json({ success: true, email: email });
+    res.json({ success: true, username: username });
   } else {
     res.json({ success: false });
   }

@@ -2,18 +2,15 @@
   display: flex;
   align-items: center;
   background-color: #40b87a;
+  justify-content: space-between; /*Spread out logo, search, and navRight*/
 }
 
-.logo {
-  img {
-    display: flex;
-    justify-content: right;
-    border: 1px solid #ddd;
-    border-radius: 50%;
-    padding: 2px;
-    width: 100px;
-    gap: 10px;
-  }
+.logo img {
+  display: block; /* Typically an image is displayed as a block or inline-block */
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  padding: 2px;
+  width: 100px;
 }
 
 .navLeft {
@@ -26,20 +23,51 @@
 }
 
 .links {
-  display: flex;
   text-decoration: none;
 }
 
+.header-search {
+  display: flex;
+  flex-grow: 1; /* Allows the search bar to take up available space */
+  align-items: center;
+  border-radius: 24px;
+  margin: 0 10px;
+}
+
+.header-searchInput {
+  flex-grow: 1; /* Allows input to take available space inside .header-search */
+  padding: 10px;
+  border: black;
+  /* outline: black; */
+  align-items: center;
+}
+
+.header-searchIcon {
+  background-color: #008000;
+  border-radius: 50%;
+  padding: 5px;
+  color: white;
+  cursor: pointer;
+}
 .navRight {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  width: 65%;
   gap: 30px;
 }
 
-/* .logo {
-  img {
-    border-radius: 8px;
-  }
-} */
+.nav__itemLineTwo {
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.nav__itemBasket {
+  display: flex;
+  align-items: center;
+  color: black;
+  margin-right: 50px;
+  cursor: pointer;
+}
+
+.nav__basketCount {
+  margin-left: 4px;
+}
