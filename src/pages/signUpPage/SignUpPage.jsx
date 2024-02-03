@@ -29,10 +29,10 @@ export default function SignUpPage() {
   return (
     <>
       <Header />
-      <div className="auth">
+      <div className="signup">
         <h1>Create New Account</h1>
         <form onSubmit={signup}>
-          <div className="RegisterForm">
+          <div className="signup-form">
             <input
               type="text"
               value={username}
@@ -40,7 +40,7 @@ export default function SignUpPage() {
               placeholder="username"
             />
           </div>
-          <div className="RegisterForm">
+          <div className="signup-form">
             <input
               type="password"
               value={password}
@@ -48,13 +48,16 @@ export default function SignUpPage() {
               placeholder="password"
             />
           </div>
-          <button type="submit">Submit</button>
 
           <span>
             Do you have an account? <Link to="/login">Login</Link>
           </span>
+          <button className="signup-button" type="submit">
+            SignUp
+          </button>
         </form>
       </div>
+
       <Footer />
     </>
   );

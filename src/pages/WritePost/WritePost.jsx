@@ -1,127 +1,100 @@
-import { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
-import moment from "moment";
 import "./WritePost.css";
-// import Header from "../../components/Header/Header.jsx";
-// import Footer from "../../components/Footer/Footer.jsx";
+import "react-quill/dist/quill.snow.css";
+import Header from "../../components/Header/Header.jsx";
+import Footer from "../../components/Footer/Footer.jsx";
+import ReactQuill from "react-quill";
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
+
+const modules = {
+  toolbar: [
+    [{ header: [1, 2, false] }],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [
+      { list: "ordered" },
+      { list: "bullet" },
+      { indent: "-1" },
+      { indent: "+1" },
+    ],
+    ["link", "image"],
+    ["clean"],
+  ],
+};
+
+const formats = [
+  "header",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "blockquote",
+  "list",
+  "bullet",
+  "indent",
+  "link",
+  "image",
+];
 
 export default function WritePost() {
-  const state = useLocation().state;
-  const [value, setValue] = useState(state?.title || "");
-  const [title, setTitle] = useState(state?.desc || "");
-  const [file, setFile] = useState(null);
-  const [crafts, setCrafts] = useState(state?.craft || "");
+  const [title, setTitle] = useState("");
+  const [summary, setSummary] = useState("");
+  const [content, setContent] = useState("");
+  const [files, setFiles] = useState("");
+  const [redirect, setRedirect] = useState(false);
 
-  const navigate = useNavigate();
+  async function createNewPost(e) {
+    const data = new FormData();
+    data.set("title", title);
+    data.set("summary", summary);
+    data.set("content", content);
 
-  const upload = async () => {
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-      const res = await axios.post("/upload", formData);
-      return res.data;
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const handleClick = async (e) => {
+    data.set("file", files[0]);
     e.preventDefault();
-    const imgUrl = await upload();
-
-    try {
-      state
-        ? await axios.put(`/posts/${state.id}`, {
-            title,
-            desc: value,
-            crafts,
-            img: file ? imgUrl : "",
-          })
-        : await axios.post(`/posts/`, {
-            title,
-            desc: value,
-            crafts,
-            img: file ? imgUrl : "",
-            date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-          });
-      navigate("/");
-    } catch (err) {
-      console.log(err);
+    const response = await fetch("http://localhost:4090/WritePost", {
+      method: "POST",
+      body: data,
+    });
+    if (response.ok) {
+      setRedirect(true);
     }
-  };
+  }
 
+  if (redirect) {
+    return <Navigate to={"/"} />;
+  }
   return (
-    <div className="add">
-      {/* <Header /> */}
-      <div className="content">
-        <input
-          type="text"
-          placeholder="Title"
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <div className="editorContainer">
-          <ReactQuill
-            className="editor"
-            theme="snow"
-            value={value}
-            onChange={setValue}
-          />
-        </div>
-      </div>
-      <div className="menu">
-        <div className="item">
-          <h1>Publish</h1>
-          <span>
-            <b>Status: </b> Draft
-          </span>
-          <span>
-            <b>Visibility: </b> Public
-          </span>
+    <>
+      <Header />
+      <div className="write-post">
+        <form onSubmit={createNewPost}>
           <input
-            style={{ display: "none" }}
-            type="file"
-            id="file"
-            name=""
-            onChange={(e) => setFile(e.target.files[0])}
+            type="title"
+            placeholder={"Title"}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
-          <label className="file" htmlFor="file">
-            Upload Image
-          </label>
-          <div className="buttons">
-            <button>Save as a draft</button>
-            <button onClick={handleClick}>Publish</button>
-          </div>
-        </div>
-        <div className="item">
-          <h1>Category</h1>
-          <div className="crafts">
-            <input
-              type="radio"
-              checked={crafts === "art"}
-              name="crafts"
-              value="art"
-              id="art"
-              onChange={(e) => setCrafts(e.target.value)}
-            />
-            <label htmlFor="crochet">Crochet</label>
-          </div>
-          <div className="crafts">
-            <input
-              type="radio"
-              checked={crafts === "arts&crafts"}
-              name="crafts"
-              value="arts&crafts"
-              id="arts&crafts"
-              onChange={(e) => setCrafts(e.target.value)}
-            />
-            <label htmlFor="Quilt">Quilting</label>
-          </div>
-        </div>
+          <input
+            type="summary"
+            placeholder={"Summary"}
+            value={summary}
+            onChange={(e) => setSummary(e.target.value)}
+          />
+          <input
+            type="file"
+            value={files}
+            onChange={(e) => setFiles(e.target.value)}
+          />
+
+          <ReactQuill
+            value={content}
+            onChange={(newValue) => setContent(newValue)}
+            modules={modules}
+            formats={formats}
+          />
+          <button style={{ marginTop: "5px" }}>Create Post</button>
+        </form>
       </div>
-      {/* <Footer /> */}
-    </div>
+      <Footer />
+    </>
   );
 }

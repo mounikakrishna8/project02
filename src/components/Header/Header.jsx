@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useNavigate, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import SearchIcon from "@mui/icons-material/Search";
 import "./Header.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -9,39 +9,26 @@ import axios from "axios";
 export default function Header() {
   const [username, setUsername] = useState(null);
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const [redirect, setRedirect] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // to put user info inplace of login
   useEffect(() => {
-    axios
-      .get("http://localhost:4090/profile", { withCredentials: true })
-      .then((response) => {
-        setUsername(response.data.username);
-      })
-      .catch((error) => {
-        console.error("There was an error fetching the user info:", error);
-      });
-  }, []);
+    console.log(user);
+  }, [user]);
 
   //logout functionality
   async function logout() {
-    try {
-      // Invalidated the session on the server-side
-      await axios.post(
-        "http://localhost:4090/logout",
-        {},
-        {
-          withCredentials: true,
-        }
-      );
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
+    navigate("/");
+  }
+  if (redirect) {
+    return <Navigate to="/" />;
   }
 
   return (
-    //fragments:-React Fragment is a feature in React that allows you to return multiple elements from a React component by allowing you to group a list of children without adding extra nodes to the DOM.
-    // To return multiple elements from a React component, you'll need to wrap the element in a root element
-
     <section className="header">
       {/* division for logo */}
       <Link to="/">
@@ -56,11 +43,11 @@ export default function Header() {
         <Link className="links" to="/Crochet">
           <h4>Crochet</h4>
         </Link>
-        <Link className="links" to="/Patterns">
-          <h4>Patterns</h4>
-        </Link>
         <Link className="links" to="/Quilting">
           <h4>Quilting</h4>
+        </Link>
+        <Link className="links" to="/Patterns">
+          <h4>Patterns</h4>
         </Link>
         <Link className="links" to="/Blog">
           <h4>Blog</h4>
@@ -81,16 +68,21 @@ export default function Header() {
       <div className="navRight">
         {/* if we have user name create post or else show login register */}
 
-        {username && (
+        {user && (
           <>
-            <Link to="/profile">{username}</Link>
+            <Link to="/profile" style={{ textDecoration: "none" }}>
+              {user}
+            </Link>
             <Link className="links" to="/writePost">
               <h4>Write</h4>
             </Link>
-            <a onClick={logout}>Logout</a>
+            <Link className="links" to="/" onClick={logout}>
+              <h4>Logout</h4>
+            </Link>
           </>
         )}
-        {!username && (
+
+        {!user && (
           <>
             <Link className="links" to="/login">
               <h4>Login</h4>
@@ -103,7 +95,7 @@ export default function Header() {
 
         {/* here we gave custom style to remove the default decor i.e.underline */}
 
-        <Link to="/checkout" style={{ textDecoration: "none" }}>
+        <Link to="/shoppingCart" style={{ textDecoration: "none" }}>
           <div className="nav__itemBasket">
             {/* <span className="nav__itemLineOne">Basket</span> */}
             <ShoppingCartIcon fontSize="large" />

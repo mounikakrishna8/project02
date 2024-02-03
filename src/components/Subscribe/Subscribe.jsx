@@ -16,61 +16,43 @@ export default function Subscribe({ onSubscribe }) {
   };
 
   return (
-    <div className="newletter_container">
-      <h3>NewsLetter</h3>
+    <>
+      <div className="newletter_container">
+        <h2>NewsLetter</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="news-letter">
+            <label className="names">First Name:</label>
+            <input
+              type="text"
+              value={userFirstName}
+              onChange={(e) => setUserFirstName(e.target.value)}
+              placeholder="FirstName"
+            />
+          </div>
+          <div className="news-letter">
+            <label className="names">Last Name:</label>
+            <input
+              type="text"
+              value={userLastName}
+              onChange={(e) => setUserLastName(e.target.value)}
+              placeholder="LastName"
+            />
+          </div>
+          <div className="news-letter">
+            <label className="names">Email:</label>
+            <input
+              type="email"
+              value={emailValue}
+              onChange={(e) => setEmailValue(e.target.value)}
+              placeholder="Email"
+            />
+          </div>
 
-      <form onSubmit={handleSubmit}>
-        <div className="newsletter">
-          <lable>First Name:</lable>
-          <input
-            type="text"
-            value={userFirstName}
-            onChange={(e) => setUserFirstName(e.target.value)}
-            placeholder="FirstName"
-          />
-        </div>
-        <div className="newsletter">
-          <lable>Last Name:</lable>
-          <input
-            type="text"
-            value={userLastName}
-            onChange={(e) => setUserLastName(e.target.value)}
-            placeholder="LastName"
-          />
-        </div>
-        <div className="newsletter">
-          <label>Email:</label>
-          <input
-            type="text"
-            value={emailValue}
-            onChange={(e) => setEmailValue(e.target.value)}
-            placeholder="Email"
-          />
-        </div>
-
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
+          <button className="subscribe-button" type="submit">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
-
-// import { useState } from "react";
-// import { Link } from "react-router-dom";
-// import "./LoginForm.css";
-
-// export default function Login({ onLogin }) {
-//   const [emailValue, setEmailValue] = useState("");
-//   const [passwordValue, setPasswordValue] = useState("");
-
-//   const handleSubmit = (e) => {
-//     // login logic
-//     onLogin(e, {
-//       email: emailValue,
-//       password: passwordValue,
-//     });
-//   };
-//   return (
-//     <div className="auth">
-//       <h1>Login</h1>
-//
-//     </div>

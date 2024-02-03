@@ -1,25 +1,26 @@
 .footer {
-  width: 100%;
-  margin-top: 100px;
-  padding: 20px;
+  margin-top: auto;
   background-color: #40b87a;
+  height: 50px;
+  padding: 15px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   font-size: 12px;
 }
 
-.Footer-footerIcon {
+.footer-content {
+  text-decoration: none;
+  /* margin-right: 100rem; */
   display: flex;
-  margin-right: 20px;
-  color: black;
-  cursor: pointer;
 }
-.links {
-  color: black;
-}
-.footer-left {
-  display: flex;
-  gap: 30px;
-  font-size: medium;
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-content,
+  .footer-right {
+    margin-bottom: 0.5rem;
+  }
 }

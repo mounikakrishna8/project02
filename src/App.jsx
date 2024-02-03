@@ -9,10 +9,11 @@ import LoginPage from "./pages/loginPage/LoginPage.jsx";
 import WritePost from "./pages/WritePost/WritePost.jsx";
 import QuiltingPage from "./pages/quiltingpage/Quilting.jsx";
 import CrochetPage from "./pages/crochetpage/Crochet.jsx";
-import DressPatternsPage from "./pages/patternspage/PatternsPage.jsx";
+import PatternsPage from "./pages/patternspage/PatternsPage.jsx";
 import BlogPage from "./pages/blogpage/BlogPage.jsx";
 import Shop from "./pages/Shop/Shop.jsx";
-import Checkout from "./pages/checkoutpage/Checkout.jsx";
+import ShoppingCart from "./pages/shoppingCart/ShoppingCart.jsx";
+import "./App.css";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,8 +40,8 @@ const router = createBrowserRouter([
     element: <CrochetPage />,
   },
   {
-    path: "/DressPatterns",
-    element: <DressPatternsPage />,
+    path: "/Patterns",
+    element: <PatternsPage />,
   },
   {
     path: "/Blog",
@@ -51,17 +52,15 @@ const router = createBrowserRouter([
     element: <Shop />,
   },
   {
-    path: "/checkout",
-    element: <Checkout />,
+    path: "/shoppingCart",
+    element: <ShoppingCart />,
   },
 ]);
 
 function App() {
   return (
     <div className="app">
-      <div className="container">
-        <RouterProvider router={router} />
-      </div>
+      <RouterProvider router={router} />
     </div>
   );
 }

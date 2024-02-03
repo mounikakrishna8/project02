@@ -1,10 +1,11 @@
 import { Router } from "express";
 import { User } from "../models/index.js";
-import * as jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 import { loginRequired } from "../middlewares/auth.middleware.js";
 
 const authRoutes = Router();
+console.log(jwt);
 
 authRoutes.post('/login', async (req, res) => {
   const { username, password } = req.body;
@@ -27,7 +28,7 @@ authRoutes.post('/login', async (req, res) => {
 
 // Note the `loginRequired` argument passed to the routes below!
 
-authRoutes.post('/api/logout', loginRequired, (req, res) => {
+authRoutes.post('/logout', loginRequired, (req, res) => {
   req.session.destroy();
   res.json({ success: true });
 });

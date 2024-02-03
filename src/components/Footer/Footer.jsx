@@ -5,20 +5,23 @@ export default function Footer() {
   const year = new Date().getFullYear();
   return (
     <div className="footer">
-      <div className="Footer-bottomRight">
-        {/* <i className="footerIcon fa-brands fa-instagram"></i>
-        <i className="footerIcon fa-brands fa-youtube"></i>
-        <i className="footerIcon fa-brands fa-pinterest"></i> */}
-      </div>
-      <span className="footer-left">
-        <Link className="links" to="/ContactUs">
+      <div className="footer-content">
+        <Link
+          className="links"
+          to="/ContactUs"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           <h4>Contact Us</h4>
         </Link>
-        <Link className="links" to="/About">
+        <Link
+          className="links"
+          to="/About"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           <h4>AboutUs</h4>
         </Link>
-      </span>
-      <p>©{year}</p>
+      </div>
+      <div className="footer-right"> &copy;{year} BlogApp</div>
     </div>
   );
 }

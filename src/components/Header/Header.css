@@ -16,7 +16,7 @@
 .navLeft {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
   z-index: 1;
 
   /* z-index is to give height priority to the container */
@@ -52,7 +52,7 @@
 .navRight {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
 }
 
 .nav__itemLineTwo {

@@ -1,14 +1,9 @@
-.filter-btn {
-  display: flex;
-  margin: 20px;
-  align-items: center;
-}
-
 .shop {
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
   max-width: 1500px;
+  min-height: 100vh;
 }
 
 .shop-img {
@@ -25,6 +20,7 @@
 
 .shop-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   z-index: 1;
   margin-left: 5px;
