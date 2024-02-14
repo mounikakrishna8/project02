@@ -1,0 +1,39 @@
+.checkout {
+  display: flex;
+  padding: 20px;
+  background-color: white;
+  gap: 20px;
+}
+
+.checkout-title {
+  margin-right: 10px;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  font-size: 24px;
+}
+
+.checkout-left {
+  /* flex 1 allows this section to take up the available space */
+  flex: 1;
+  /* the display here is flex and direction colums as we want to display the products one below the other instead of one beside the other */
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-right {
+  /* flex basis gives a fixed width to the right section */
+  flex-basis: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CSS for screens that are narrower than 768 pixels */
+@media screen and (max-width: 768px) {
+  .checkout {
+    flex-direction: column;
+  }
+
+  .checkout-right {
+    flex-basis: auto; /* Allows the section to adjust its size automatically */
+  }
+}

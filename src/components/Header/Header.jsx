@@ -1,10 +1,10 @@
-import { useNavigate, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import SearchIcon from "@mui/icons-material/Search";
-import "./Header.css";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import SearchIcon from '@mui/icons-material/Search';
+import './Header.css';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function Header() {
   const [username, setUsername] = useState(null);
@@ -22,7 +22,7 @@ export default function Header() {
 
   //logout functionality
   async function logout() {
-    navigate("/");
+    navigate('/');
   }
   if (redirect) {
     return <Navigate to="/" />;
@@ -70,7 +70,7 @@ export default function Header() {
 
         {user && (
           <>
-            <Link to="/profile" style={{ textDecoration: "none" }}>
+            <Link to="/profile" style={{ textDecoration: 'none' }}>
               {user}
             </Link>
             <Link className="links" to="/writePost">
@@ -95,7 +95,7 @@ export default function Header() {
 
         {/* here we gave custom style to remove the default decor i.e.underline */}
 
-        <Link to="/shoppingCart" style={{ textDecoration: "none" }}>
+        <Link to="/shoppingCart" style={{ textDecoration: 'none' }}>
           <div className="nav__itemBasket">
             {/* <span className="nav__itemLineOne">Basket</span> */}
             <ShoppingCartIcon fontSize="large" />

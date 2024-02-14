@@ -1,0 +1,27 @@
+.cart-total {
+  padding: 20px;
+  margin-top: 20px;
+  background: #f3f3f3;
+  border-radius: 8px;
+}
+
+.cart-total p {
+  margin-bottom: 16px;
+}
+.cart-total h2 {
+  margin: 5px 0;
+}
+.checkout-button {
+  background-color: green;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.checkout-button:hover {
+  background-color: rgb(25, 155, 25);
+  color: white;
+}

@@ -3,9 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home/Home.jsx";
 import SignUpPage from "./pages/SignUpPage/SignUpPage.jsx";
 import LoginPage from "./pages/loginPage/LoginPage.jsx";
-
-//import LogoutButton from './components/LogoutButton';
-// import SinglePostPage from "./pages/SinglePostPage.jsx";
 import WritePost from "./pages/WritePost/WritePost.jsx";
 import QuiltingPage from "./pages/quiltingpage/Quilting.jsx";
 import CrochetPage from "./pages/crochetpage/Crochet.jsx";

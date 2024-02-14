@@ -9,8 +9,7 @@
 .shop-img {
   width: 100%;
   height: 400px;
-  /* if you give z-index:-1 the products will appear on the image(overlap) */
-  /* the image is underneath the product section */
+
   z-index: -1;
   /* marginbottom:-50px is to push the product container little bit up on the image */
   margin-bottom: -50px;
